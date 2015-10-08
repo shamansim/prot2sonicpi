@@ -1,0 +1,35 @@
+def lit(fichier):
+	f=open(fichier,'r')
+	return f.readline()[:-1]
+	f.close()
+
+# avec winsound je peux faire de la musique dans python !
+# https://docs.python.org/2.7/library/winsound.html?highlight=winsound#module-winsound
+def main (seq):
+	print seq
+	res=str()
+	for aa in seq:
+		#print aa#
+		#parcours des acides amines et restitution en code USA des notes
+		if aa=='A': #arginine devient un LA
+			res=res.__add__(aa)
+		elif aa=='C': #cysteine devient un DO
+			res=res.__add__(aa)
+		elif aa=='D': #acide aspartique devient un RE
+			res=res.__add__(aa)
+		elif aa=='E': #acide glutamique devient un MI
+			res=res.__add__(aa)
+		elif aa=='F': #phenylalanine devient un FA
+			res=res.__add__(aa)
+		elif aa=='G': #glutamine devient un SOL
+			res=res.__add__(aa)
+		else:	      #tous les autres deviennent des pauses
+			res=res.__add__('-') #mais IDEE : en faire des valeurs de
+	return res 			     #prolongation des notes
+	
+def output(seq,filename):
+	g=open(filename,'w')
+	res=main(seq)
+	g.write(str(res))
+	g.close()
+	
